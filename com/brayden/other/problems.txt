@@ -1,0 +1,372 @@
+1. http://www.geeksforgeeks.org/print-binary-tree-vertical-order/
+Given a binary tree, print it vertically. The following example illustrates vertical order traversal.
+           1
+        /    \
+       2      3
+      / \    / \
+     4   5  6   7
+             \   \
+              8   9 
+The output of print this tree vertically will be:
+4
+2
+1 5 6
+3 8
+7
+9 
+
+
+
+2. Given a Binary Tree, find vertical sum of the nodes that are in same vertical line. Print all sums through different vertical lines.
+Examples:
+      1
+    /   \
+  2      3
+ / \    / \
+4   5  6   7
+The tree has 5 vertical lines
+Vertical-Line-1 has only one node 4 => vertical sum is 4
+Vertical-Line-2: has only one node 2=> vertical sum is 2
+Vertical-Line-3: has three nodes: 1,5,6 => vertical sum is 1+5+6 = 12
+Vertical-Line-4: has only one node 3 => vertical sum is 3
+Vertical-Line-5: has only one node 7 => vertical sum is 7
+So expected output is 4, 2, 12, 3 and 7
+
+
+
+3. Given a sorted array of size n. Each element in array is unique and lies from 1 to n+1. Find the missing element. Write code and test cases for the same.
+
+
+
+4. 
+Program to print last 10 lines
+Given some text lines in one string, each line is separated by ‘\n’ character. Print the last ten lines. If number of lines is less than 10, then print all lines.
+
+
+
+
+
+5. 
+Given a binary tree (not a binary search tree) and two values say n1 and n2, write a program to find the least common ancestor.
+
+
+6.  find the subarray whose sum equals 0.
+* get the sum array, check for in the sum array for the same values( sum[-1] = 0);
+
+
+7. Given an input array find all subarrays with given sum K
+
+8. Longest common substring problem
+* longest common suffix[][] -> lcs
+* suffix tree
+
+9. Write a program to Validate an IPv4 Address.
+According to Wikipedia, IPv4 addresses are canonically represented in dot-decimal notation, which consists of four decimal numbers, each ranging from 0 to 255, separated by dots, e.g., 172.16.254.1
+
+10. 
+Construct an array from its pair-sum array
+A pair-sum array for an array is the array that contains sum of all pairs in ordered form. For example pair-sum array for arr[] = {6, 8, 3, 4} is {14, 9, 10, 11, 12, 7}.
+In general, pair-sum array for arr[0..n-1] is {arr[0]+arr[1], arr[0]+arr[2], ……., arr[1]+arr[2], arr[1]+arr[3], ……., arr[2]+arr[3], arr[2]+arr[4], …., arr[n-2]+arr[n-1}.
+“Given a pair-sum array, construct the original array.”
+sum(pair-sum)/n-1 = sum(arr),    sum{the first n-1 pair sum} - sum(arr) 
+**actually pair-sum[0] = arr[0] + arr[1], pair-sum[1] = arr[1] + arr[2], pair-sum[n-1] = arr[1] + arr[2]
+
+1. Given an array of 0s and 1s, find the position of 0 to be replaced with 1 to get longest continuous sequence of 1s.
+Eg: Array- 1,1,0,0,1,0,1,1,1,0,1,1,1
+Output - index 9
+Assuming array index starts from 0. 
+
+2. Given an unsorted array, find the k smallest elements
+Array {9, 5, 1, 4, 13, 6}
+k = 3
+Output: 1, 4, 5 
+
+3. Find the minimum distance between any 2 given nodes in a tree.
+Sample_tree
+Minimum distance between 2 and 11 is 3
+2–>5–>6–>11
+
+1. Convert a tree to a sum tree.
+Example :
+       1                            27
+     /   \                        /   \
+   2       3     ------->       9      13
+  / \     / \                  / \     / \
+ 4  5    6  7                 0  0    0  0 
+Always take care of all the corner cases
+
+1. Convert a binary tree to a sum tree . Here he had a new meaning of sum tree.
+Example :
+Example :
+       1                            1
+     /   \                        /   \
+   2       3     ------->       2      5
+  / \     / \                  / \     / \
+ 4  5    6  7                 4   9   15  22 
+(I did it with Level Order Traversal) (Complete working code was required)
+
+
+
+Convert a Binary Tree to Threaded binary tree
+
+
+2- Given a row and column wise 2d sorted array.Find the kth element in this array.
+
+
+
+There are two sorted arrays. First one is of size m+n containing only m elements. 
+Another one is of size n and contains n elements. Merge these two arrays into 
+the first array of size m+n such that the output is sorted.
+
+
+
+
+
+Find the closest leaf in a Binary Tree
+Given a Binary Tree and a key ‘k’, find distance of the closest leaf from ‘k’.
+Examples:
+              A
+            /    \    
+           B       C
+                 /   \  
+                E     F   
+               /       \
+              G         H
+             / \       /
+            I   J     K
+Closest leaf to 'H' is 'K', so distance is 1 for 'H'
+Closest leaf to 'C' is 'B', so distance is 2 for 'C'
+Closest leaf to 'E' is either 'I' or 'J', so distance is 2 for 'E' 
+Closest leaf to 'B' is 'B' itself, so distance is 0 for 'B' 
+
+
+
+
+Check if a binary tree is subtree of another binary tree | Set 2
+Given two binary trees, check if the first tree is subtree of the second one. A subtree of a tree T is a tree S consisting of a node in T and all of its descendants in T.
+The subtree corresponding to the root node is the entire tree; the subtree corresponding to any other node is called a proper subtree.
+
+
+
+
+Given n appointments, find all conflicting appointments.
+Examples:
+Input: appointments[] = { {1, 5} {3, 7}, {2, 6}, {10, 15}, {5, 6}, {4, 100}}
+Output: Following are conflicting intervals
+[3,7] Conflicts with [1,5]
+[2,6] Conflicts with [1,5]
+[5,6] Conflicts with [3,7]
+[4,100] Conflicts with [1,5]
+An appointment is conflicting, if it conflicts with any of the previous appointments in array.
+
+
+
+* Given a string of words with lots of spaces between the words , remove all the unnecessary spaces like
+  input:  I   live   on     earth  
+  output: I live on earth
+  
+  
+  
+Sort an array in wave form
+Given an unsorted array of integers, sort the array into a wave like array. An array ‘arr[0..n-1]’ is sorted in wave form
+if arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= …..
+Examples:
+ Input:  arr[] = {10, 5, 6, 3, 2, 20, 100, 80}
+ Output: arr[] = {10, 5, 6, 2, 20, 3, 100, 80} OR
+                 {20, 5, 10, 2, 80, 6, 100, 3} OR
+                 any other array that is in wave form
+ Input:  arr[] = {20, 10, 8, 6, 4, 2}
+ Output: arr[] = {20, 8, 10, 4, 6, 2} OR
+                 {10, 8, 20, 2, 6, 4} OR
+                 any other array that is in wave form
+ Input:  arr[] = {2, 4, 6, 8, 10, 20}
+ Output: arr[] = {4, 2, 8, 6, 20, 10} OR
+                 any other array that is in wave form
+ Input:  arr[] = {3, 6, 5, 10, 7, 20}
+ Output: arr[] = {6, 3, 10, 5, 20, 7} OR
+                 any other array that is in wave form  
+                 
+                 
+
+
+Pancake sorting
+Given an an unsorted array, sort the given array. You are allowed to do only following operation on array.
+flip(arr, i): Reverse array from 0 to i 
+
+
+
+Find the closest pair from two sorted arrays
+Given two sorted arrays and a number x, find the pair whose sum is closest to x and the pair has an element from each array.
+
+
+
+Find sum of all left leaves in a given Binary Tree
+Given a Binary Tree, find sum of all left leaves in it. 
+
+
+You are given an array of positive integers. Convert it to a sorted array with minimum cost (minimum number of operations). Only valid operation are
+1) Decrement -> cost = 1
+2) Delete an element completely from the array -> cost = value of element
+For example:
+4,3,5,6, -> cost 1 //cost is 1 to make 4->3
+10,3,11,12 -> cost 3 // cost 3 to remove 3 
+
+
+Write an iterative algorithm to find ancestors of a given node. 
+
+
+find the longest interval (two indexes in both arrays) such that the sum of the values in this interval is same in both arrays.
+begin and end of the interval should be 1.
+A[] = {0,1,0,0,0,1,1,0}
+B[] = {1,1,1,0,0,0,1,1}
+The longest interval starts from index 1 and ends at 6. Sum of the numbers is 3 in both arrays. 
+
+
+
+Write a program to remove comments // and /* … */ from a regular C. C++ or Java code. Consider all possible comment combinations.
+
+
+In a given array of elements like [a1, a2, a3, a4, ….. an, b1, b2, b3, b4, ……. bn, c1, c2, c3, c4, …….. cn]
+without taking a extra memory how to merge like [a1, b1, c1, a2, b2, c2, a3, b3, c3, ………… an, bn, cn] 
+
+
+Given 2 unsorted integer arrays a and b of equal size. Determine if b is a
+permutation of a. Can this be done in O(n) time and O(1) space ? 
+
+
+Write a non-recursive algorithm to find the preorder successor of a given node in a BST.
+Note: Parent pointers are not given. If the node doesn’t exist you should return NULL. 
+
+
+Given an array, sort the array in such a way that the first part of the sorted array contains odd numbers, and the second part contains even numbers. The first part has to be sorted in descending order and the second part in ascending order. Not extra array, no pre or post processing and it has to use a conventional sorting mechanism.
+
+
+Given a string ‘str’, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.
+
+
+Given a Binary Tree and a number k, remove all nodes that lie only on root to leaf path(s) of length smaller than k. If a node X lies on multiple root-to-leaf paths and if any of the paths has path length >= k, then X is not deleted from Binary Tree. In other words a node is deleted if all paths going through it have lengths smaller than k.
+
+
+2. Given a large 2-D matrix containing integers, find the mean of any given submatrix in a constant time (no constraints on space and preprocessing of this matrix)
+
+
+Write a function to connect all the adjacent nodes at the same level in a binary tree. Structure of the given Binary Tree node is like following.
+struct node {
+  int data;
+  struct node* left;
+  struct node* right;
+  struct node* nextRight;
+}
+Initially, all the nextRight pointers point to garbage values. Your function should set these pointers to point next right for each node. You can use only constant extra space.
+
+
+
+Print the elements of an array in the decreasing frequency if 2 numbers have same frequency then print the one which came 1st
+E.g. 2 5 2 8 5 6 8 8 output: 8 8 8 2 2 5 5 6.
+-> one hash and one list 
+
+Given a string ‘str’, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.
+
+
+
+
+Given three arrays sorted in non-decreasing order, print all common elements in these arrays.
+Examples:
+ar1[] = {1, 5, 10, 20, 40, 80}
+ar2[] = {6, 7, 20, 80, 100}
+ar3[] = {3, 4, 15, 20, 30, 70, 80, 120}
+Output: 20, 80
+ar1[] = {1, 5, 5}
+ar2[] = {3, 4, 5, 5, 10}
+ar3[] = {5, 5, 10, 20}
+Outptu: 5, 5 
+
+
+
+
+
+Remove BST keys outside the given range
+Given a Binary Search Tree (BST) and a range [min, max], remove all keys which are outside the given range. 
+
+
+Given a set of rectangles of varying length and breadth, find out the maximum height stack you can form with them such that if rectangle R1 is on top of rectangle R2 then length(R1)<=length(R2) and breadth (R1)<=breadth(R2)
+
+
+Given an array of digits, form two numbers from those digits such that sum of those two numbers are minimum
+
+
+Given an unsorted array arr[] and two numbers x and y, find the minimum distance between x and y in arr[]. The array might also contain duplicates. You may assume that both x and y are different and present in arr[].
+
+
+Given an unsorted array, find the max j-i such that j > i and a[j] > a[i] in O(N).
+
+
+Given an array of size m (m < n) and number from 1 to n. n-m numbers are missing in the array. for eg n = 10 and m = 5 arra= [1,6,4,8,7] find the missing numbers in array. in this case missing numbers are (2,3,5,9,10)
+
+Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element in the Binary Search Tree. 
+
+
+Given a sequence of moves for a robot, check if the sequence is circular or not. A sequence of moves is circular if first and last positions of robot are same. A move can be on of the following.
+  G - Go one unit
+  L - Turn left
+  R - Turn right 
+Examples:
+Input: path[] = "GLGLGLG"
+Output: Given sequence of moves is circular 
+Input: path[] = "GLLG"
+Output: Given sequence of moves is circular
+
+
+Given A binary Tree, how do you remove all the half nodes (which has only one child)? 
+Note leaves should not be touched as they have both children as NULL.
+
+
+Given 2 arrays of integers,find whether they will form the same binary search tree.
+Exp :- 2,1,3 and 2,3,1 will form the same binary search tree.  
+
+
+Given a string ‘str’ of digits and an integer ‘n’, build the lowest possible number by removing ‘n’ digits from the string and not changing the order of input digits.
+Examples:
+Input: str = "4325043", n = 3
+Output: "2043"
+Input: str = "765028321", n = 5
+Output: "0221"
+Input: str = "121198", n = 2
+Output: "1118" 
+
+Given a sorted dictionary (array of words) of an alien language, find order of characters in the language.
+Examples:
+Input:  words[] = {"baa", "abcd", "abca", "cab", "cad"}
+  Output: Order of characters is 'b', 'd', 'a', 'c'
+Input:  words[] = {"caa", "aaa", "aab"}
+  Output: Order of characters is 'c', 'a', 'b'
+  
+  
+  2. Given a binary tree and a value k. A path is called heavy path if the sum of the elements in the path (path from root to leaf) > k remove all the paths from the tree which are not heavy i.e., tree should contain only heavy paths.
+
+  
+  
+  Q2 Given an array which contain repeated eleemt in consecutive order.Now write a recursive function which remove consecutive elements from array.
+  
+  
+  
+Root to leaf path sum equal to a given number
+
+Given a binary tree and a number, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals the given number. Return false if no such path can be found. 
+
+
+
+1. 给你一个字典，有以下一个method：
+string getWord(int index){...}
+Implement以下函数:
+int getIndex(string word)
+已知条件：
+a. index按顺序排列，0,1,2....，中间没有空档
+b. 所有word是按字母顺序排列的
+c. 当index过大，getWord 返回NULL。所以可以同里，word不存在是getIndex返回NULL
+
+
+
+Given BST, find the pairs whose sum is equal to given number
+
+Stack reversal recursively
