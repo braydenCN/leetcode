@@ -7,6 +7,19 @@ import org.junit.Test;
 public class LengthOfLastWord {
 	
     public int lengthOfLastWord(String s) {
+        if(s == null)
+            return 0;
+        
+        int count = 0, len = s.length();
+        for(int i = len - 1; i >= 0; i--)
+            if(s.charAt(i) != ' ')
+                count++;
+            else if(count > 0)
+                break;
+        return count;
+    }
+    
+    public int lengthOfLastWord1(String s) {
     	if(s == null || s.equals(""))
     		return 0;
     	
