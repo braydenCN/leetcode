@@ -1,5 +1,9 @@
 package com.brayden;
 
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,13 +12,46 @@ import org.junit.Test;
 
 public class Triangle{
 	
+    public int minimumTotal(List<List<Integer>> triangle) {
+        if(triangle == null || triangle.isEmpty())
+            return 0;
+        int len = triangle.size();
+        int[] dp = new int[len];
+        for(int i = 0; i < len; i++)
+            dp[i] = triangle.get(len - 1).get(i);
+        for(int i = len - 2; i >= 0; i--)
+            for(int j = 0; j <= i; j++)
+                dp[j] = Math.min(dp[j], dp[j + 1]) + triangle.get(i).get(j);
+        return dp[0];
+    }
+    
+    @Test
+    public void test2(){
+        /**
+Input:  [[1],[2,3]]
+Output:     1
+Expected:   3
+         */
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(Arrays.asList(1));
+        list.add(Arrays.asList(2, 3));
+        assertEquals(3, minimumTotal(list));
+    }
+    
+    @Test
+    public void test3(){
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(Arrays.asList(3));
+        assertEquals(3, minimumTotal(list));
+    }
+    
 	/** think it as a tree? **/
 	
 	private List<List<Integer>> triangle;
 	private int SIZE;
 	private Map<Integer, Integer> resCache = new HashMap<>();
 	
-    public int minimumTotal(List<List<Integer>> triangle) {
+    public int minimumTotal1(List<List<Integer>> triangle) {
     	if(triangle == null || triangle.size() == 0)
     		return 0;
     	

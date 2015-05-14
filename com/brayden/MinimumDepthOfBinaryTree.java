@@ -51,7 +51,6 @@ public class MinimumDepthOfBinaryTree extends LeetcodeTree {
         return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
     }
     
-    
 	public int minDepthInternal(TreeNode n){
 		if(n.left == null && n.right == null)
 			return 1;

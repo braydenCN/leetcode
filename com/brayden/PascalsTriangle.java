@@ -1,11 +1,13 @@
 package com.brayden;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * https://oj.leetcode.com/problems/pascals-triangle/
@@ -18,6 +20,23 @@ import static org.junit.Assert.*;
 public class PascalsTriangle extends LeetcodeCommon {
 
     public List<List<Integer>> generate(int numRows) {
+        if(numRows <= 0)
+            return Collections.emptyList();
+        LinkedList<List<Integer>> list = new LinkedList<>();
+        list.add(Collections.singletonList(1));
+        
+        for(int i = 1; i < numRows; i++){
+            List<Integer> lastList = list.getLast(), tList = new ArrayList<>();
+            tList.add(1);
+            for(int j = 1; j < i; j++)
+                tList.add(lastList.get(j - 1) + lastList.get(j));
+            tList.add(1);
+            list.add(tList);
+        }
+        return list;
+    }
+    
+    public List<List<Integer>> generate1(int numRows) {
         if(numRows < 0)
             throw new RuntimeException("index should > 1");
         List<List<Integer>> outterList = new ArrayList<List<Integer>>();

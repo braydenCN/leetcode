@@ -2,6 +2,7 @@ package com.brayden;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,37 +22,36 @@ public class LetterCombinationsofAPhoneNumber {
         digitToLettersMap.put('9', new char[]{'w', 'x', 'y', 'z'});
     }        
     
-    private List<String> letterCombinationsInt(String digits) {
-        List<String> resultList = new ArrayList<>();
-        char digit = digits.charAt(0);
-        if(digits.length() == 1)
-            for(char c: digitToLettersMap.get(digit))
-                resultList.add(String.valueOf(c));
-        else
-            for(char c: digitToLettersMap.get(digit))
-                for(String str: letterCombinationsInt(digits.substring(1)))
-                    resultList.add(c + str);
-        
-        return resultList;
-    }
+//    private List<String> letterCombinationsInt(String digits) {
+//        List<String> resultList = new ArrayList<>();
+//        char digit = digits.charAt(0);
+//        if(digits.length() == 1)
+//            for(char c: digitToLettersMap.get(digit))
+//                resultList.add(String.valueOf(c));
+//        else
+//            for(char c: digitToLettersMap.get(digit))
+//                for(String str: letterCombinationsInt(digits.substring(1)))
+//                    resultList.add(c + str);
+//        
+//        return resultList;
+//    }
     
-    private List<String> letterCombinationsInt1(String digits) {
+    private List<String> letterCombinationsInt(String digits) {
         if(digits.length() == 0)
             return Arrays.asList("");
         
         List<String> resultList = new ArrayList<>();
-        for(char c: digitToLettersMap.get(digits.charAt(0)))
-                for(String str: letterCombinationsInt1(digits.substring(1)))
-                    resultList.add(c + str);
+        for(String str: letterCombinationsInt(digits.substring(1)))
+            for(char c: digitToLettersMap.get(digits.charAt(0)))
+                resultList.add(c + str);
         
         return resultList;
     }
     
-    public List<String> letterCombinations1(String digits) {
-        if(digits == null || digits.isEmpty() || 
-                digits.contains("0") || digits.contains("1"))
-            return Arrays.asList(new String[]{""});
+    public List<String> letterCombinations(String digits) {
+        if(digits == null || digits.isEmpty())
+            return Collections.emptyList();
         
-        return letterCombinationsInt1(digits);
+        return letterCombinationsInt(digits);
     }
 }

@@ -17,7 +17,29 @@ import org.junit.Test;
  */
 public class ValidPalindrome extends LeetcodeCommon {
 	
-	public boolean isPalindrome(String s) {
+    public boolean isPalindrome(String s) {
+        int low = -1, high = s.length();
+        while(++low < --high){
+            while(low < high && !isAlphaNum(s.charAt(low))) low++;
+            while(low < high && !isAlphaNum(s.charAt(high))) high--;
+            if(low < high && 
+                    lowercase(s.charAt(low)) != lowercase(s.charAt(high)))
+                return false;
+        }
+        return true;
+    }
+    
+    private char lowercase(char c){
+        return c >= 'A' && c <= 'Z' ? (char)(c - 'A' + 'a') : c;
+    }
+    
+    private boolean isAlphaNum(char c){
+        return c >= 'a' && c <= 'z' || 
+               c >= 'A' && c <= 'Z' || 
+               c >= '0' && c <= '9';
+    }
+    
+	public boolean isPalindrome1(String s) {
         s = s.replaceAll("\\W", "").toLowerCase();
         int len = s.length();
         if(len == 0 || len == 1)
