@@ -14,6 +14,17 @@ import static org.junit.Assert.*;
 public class MergeSortedArray {
 	
     public void merge(int A[], int m, int B[], int n) {
+        if(n <= 0)
+            return;
+        int index = m + n - 1;
+        m--; n--;
+        while(m >= 0 && n >= 0)
+            A[index--] = A[m] > B[n] ? A[m--] : B[n--];
+        while(n >= 0)
+            A[index--] = B[n--];
+    }
+    
+    public void merge1(int A[], int m, int B[], int n) {
     	if(n <= 0)
     		return;
     	

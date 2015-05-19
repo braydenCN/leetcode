@@ -8,7 +8,29 @@ import java.util.Map;
 import org.junit.Test;
 
 public class LongestConsecutiveSequence extends LeetcodeCommon {
+    
     public int longestConsecutive(int[] num) {
+        if(num == null)
+            return 0;
+        
+        int longest = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int n: num){
+            if(map.containsKey(n))
+                continue;
+            map.put(n, 1);
+            int start = map.containsKey(n - 1) ? n - map.get(n - 1) : n;
+            int end = map.containsKey(n + 1) ? n + map.get(n + 1) : n;
+            int len = end - start + 1;
+            map.put(start, len);
+            map.put(end, len);
+            if(len > longest)
+                longest = len;
+        }
+        return longest;
+    }
+    
+    public int longestConsecutive1(int[] num) {
         if(num == null || num.length == 0)
             return 0;
         
@@ -27,6 +49,16 @@ public class LongestConsecutiveSequence extends LeetcodeCommon {
                     longest = length;
             }
         return longest;
+    }
+    
+    @Test
+    public void test2(){
+        /**
+        Input:  [0,0,-1]
+                Output:     1
+                Expected:   2
+        **/
+        assertEquals(2, longestConsecutive(new int[]{0, 0 , -1}));
     }
     
     @Test
