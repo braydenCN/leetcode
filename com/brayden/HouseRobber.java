@@ -21,7 +21,7 @@ public class HouseRobber {
         return dp[len - 1];
     }
     
-    public int rob(int[] num) {
+    public int rob2(int[] num) {
         if(num == null || num.length == 0)
             return 0;
         int len = num.length;
@@ -37,6 +37,18 @@ public class HouseRobber {
         }
         
         return pre;
+    }
+    
+    public int rob(int[] num) {
+        if(num == null || num.length == 0)
+            return 0;
+        int pre = 0, cur = 0;
+        for(int n: num){
+            int next = Math.max(pre + n, cur);
+            pre = cur;
+            cur = next;
+        }
+        return cur;
     }
     
     @Test

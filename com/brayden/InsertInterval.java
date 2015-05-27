@@ -12,6 +12,29 @@ public class InsertInterval extends LeetcodeCommon {
     public List<Interval> insert(List<Interval> intervals, 
             Interval newInterval) {
         if(newInterval == null)
+            return intervals;
+        if(intervals == null || intervals.isEmpty())
+            return Collections.singletonList(newInterval);
+        
+        List<Interval> result = new LinkedList<>();
+        int len = intervals.size(), i = 0;
+        int start = newInterval.start, end = newInterval.end;
+        for(; i < len && start > intervals.get(i).end; i++)
+            result.add(intervals.get(i));
+        if(i < len)
+            start = Math.min(start, intervals.get(i).start);
+        for(; i < len && intervals.get(i).start <= end; i++);
+        if(i < len)
+            end = Math.max(end, intervals.get(--i).end);
+        result.add(new Interval(start, end));
+        for(; i < len; i++)
+            result.add(intervals.get(i));
+        return intervals;
+    }
+    
+    public List<Interval> insert1(List<Interval> intervals, 
+            Interval newInterval) {
+        if(newInterval == null)
             return Collections.emptyList();
 
         if(intervals == null || intervals.size() == 0)

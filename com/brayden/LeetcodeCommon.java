@@ -289,8 +289,9 @@ public class LeetcodeCommon {
 //    }
     
     protected boolean intersected(Interval i1, Interval i2) {
-        return i1.start <= i2.end && i1.end >= i2.end ||
-                i2.start <= i1.end && i2.end >= i1.end;
+//        return i1.start <= i2.end && i1.end >= i2.end ||
+//                i2.start <= i1.end && i2.end >= i1.end;
+        return !(i1.start > i2.end || i2.start > i1.end);
     }
 
     protected double median(int[] arr) {
