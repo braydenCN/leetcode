@@ -7,6 +7,20 @@ import java.util.List;
 public class Subsets extends LeetcodeCommon {
     
     public List<List<Integer>> subsets(int[] S) {
+        Arrays.sort(S);
+        int size = 1 << S.length;
+        List<List<Integer>> list = new ArrayList<>();
+        for(int i = 0; i < size; i++){
+            List<Integer> tmp = new ArrayList<>();
+            for(int j = 0; j < S.length; j++)
+                if((i & (1 << j)) != 0)
+                    tmp.add(S[j]);
+            list.add(tmp);
+        }
+        return list;
+    }
+    
+    public List<List<Integer>> subsets2(int[] S) {
         List<List<Integer>> result = new ArrayList<>();
         result.add(new ArrayList<Integer>());
         if(S == null || S.length == 0)
