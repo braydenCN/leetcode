@@ -8,22 +8,6 @@ import org.junit.Test;
 
 public class ShortestPalindrome {
     
-    public String shortestPalindrome3(String s) {
-        if(s == null || s.isEmpty())
-            return s;
-        String revS = new StringBuilder(s).reverse().toString();
-
-        int len = s.length();
-        int[] p = new int[len];
-        for (int i = 0; i < len; i++) {
-            int j = p[i];
-            while (j > 0 && revS.charAt(i) != s.charAt(j))
-                j = p[j];
-            p[i] = (j += (revS.charAt(i) == s.charAt(j)) ? 1 : 0);
-        }
-        return revS.substring(0, len - p[len - 1]) + s;
-    }
-    
     public String shortestPalindrome(String s) {
         if(s == null || s.isEmpty())
             return s;
@@ -31,14 +15,14 @@ public class ShortestPalindrome {
 
         int len = s.length();
         int[] p = new int[len];
-        p[0] = (revS.charAt(0) == s.charAt(0)) ? 1 : 0;
         for (int i = 1; i < len; i++) {
             int j = p[i - 1];
-            p[i] = revS.charAt(i) == s.charAt(j) ? j + 1 : 0;
+            while (j > 0 && revS.charAt(i) != s.charAt(j))
+                j = p[j - 1];
+            p[i] = (j += (revS.charAt(i) == s.charAt(j)) ? 1 : 0);
         }
         return revS.substring(0, len - p[len - 1]) + s;
     }
-
     
     public String shortestPalindrome2(String s) {
         if(s == null || s.isEmpty())
@@ -99,6 +83,11 @@ Expected:   "aaacecaaa"
     @Test
     public void test2(){
         assertEquals("aba", shortestPalindrome("aba"));
+    }
+    
+    @Test
+    public void test5(){
+        assertEquals("aabaa", shortestPalindrome("abaa"));
     }
     
     @Test
