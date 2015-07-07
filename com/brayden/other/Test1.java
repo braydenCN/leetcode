@@ -25,4 +25,11 @@ public class Test1 {
             }
     }
     
+    
+    @Test
+    public void test1(){
+        System.out.println(Float.intBitsToFloat(1));
+        System.out.println(Float.floatToIntBits(5.01f));
+        System.out.println((int)4617326776960669450l);
+    }
 }
