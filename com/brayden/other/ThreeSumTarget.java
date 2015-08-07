@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class ThreeSumTarget {
 
-    public List<int[]> threeSum(int[] nums, int target){
+    public List<int[]> threeSum1(int[] nums, int target){
         if(nums == null || nums.length < 3)
             return Collections.emptyList();
         
@@ -29,6 +29,29 @@ public class ThreeSumTarget {
             set.add(nums[i]);
         }
         
+        return list;
+    }
+    
+    public List<int[]> threeSum(int[] num, int target) {
+        if(num == null || num.length < 3)
+            return Collections.emptyList();
+        
+        List<int[]> list = new ArrayList<>();       
+        Arrays.sort(num);
+        int len = num.length;
+        for(int i = 0; i < len - 2; i++){
+            int low = i + 1, high = len - 1;
+            while(low < high){
+                int sum = num[i] + num[low] + num[high];
+                if(sum == target){
+                    list.add(new int[]{num[i], num[low], num[high]});
+                    low++; high--;
+                }else if(sum < target)
+                    low++;
+                else
+                    high--;
+            }
+        }
         return list;
     }
     
