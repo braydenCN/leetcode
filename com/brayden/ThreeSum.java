@@ -13,6 +13,29 @@ import org.junit.Test;
 
 public class ThreeSum extends LeetcodeCommon {
     
+    public List<List<Integer>> threeSum(int[] num) {
+        if(num == null || num.length < 3)
+            return Collections.emptyList();
+        
+        List<List<Integer>> list = new ArrayList<>();        
+        Arrays.sort(num);
+        int len = num.length;
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < len - 1; i++) {
+            if(i > 1 && num[i] == num[i - 1] && num[i - 1] == num[i - 2])
+                continue;
+            for (int j = i + 1; j < len; j++) {
+                if(j > 2 && num[j] == num[j - 1] && num[j - 1] == num[j - 2])
+                    continue;
+                int target = -num[i] - num[j];
+                if (set.contains(target))
+                    list.add(Arrays.asList(target, num[i], num[j]));
+            }
+            set.add(num[i]);
+        }
+        return list;
+    }
+    
     public List<List<Integer>> threeSum1(int[] num) {
         if(num == null || num.length < 3)
             return Collections.emptyList();
@@ -58,7 +81,7 @@ public class ThreeSum extends LeetcodeCommon {
         return new ArrayList<>(resultSet);
     }
     
-    public List<List<Integer>> threeSum(int[] num) {
+    public List<List<Integer>> threeSum2(int[] num) {
         if(num == null || num.length < 3)
             return Collections.emptyList();
         
@@ -115,6 +138,23 @@ Expected:   [[-2,1,1]]
         expected.add(Arrays.asList(new Integer[]{-2, 1, 1}));
         assertListOfListEquals(expected, 
                 threeSum(new int[]{1, 1, -2}));
+    }
+    
+    @Test
+    public void test3(){
+        List<List<Integer>> expected = new ArrayList<>();
+        expected.add(Arrays.asList(new Integer[]{-1, -1, 2}));
+        expected.add(Arrays.asList(new Integer[]{-1, 0, 1}));
+        assertListOfListEquals(expected, 
+                threeSum(new int[]{-1, 0, 1, 2, -1, -1, -1, -4}));
+    }
+    
+    @Test
+    public void test4(){
+        List<List<Integer>> expected = new ArrayList<>();
+        expected.add(Arrays.asList(new Integer[]{-2, 1, 1}));
+        assertListOfListEquals(expected, 
+                threeSum(new int[]{-2, 0, 1, 1, 1, 1, 4}));
     }
     
     @Test
